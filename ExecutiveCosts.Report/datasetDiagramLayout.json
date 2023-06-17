@@ -1,0 +1,144 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 0,
+            "y": 525
+          },
+          "nodeIndex": "dimForecastVintage",
+          "size": {
+            "height": 165,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 666.40000000000009,
+            "y": 193
+          },
+          "nodeIndex": "dimRegulatoryInstrument",
+          "size": {
+            "height": 352,
+            "width": 265
+          },
+          "zIndex": 4
+        },
+        {
+          "location": {
+            "x": 373.59999999999991,
+            "y": 19
+          },
+          "nodeIndex": "fctTonnage",
+          "size": {
+            "height": 239,
+            "width": 234
+          },
+          "zIndex": 5
+        },
+        {
+          "location": {
+            "x": 371.20000000000005,
+            "y": 299.4
+          },
+          "nodeIndex": "fctWetCYForecasts",
+          "size": {
+            "height": 193,
+            "width": 234
+          },
+          "zIndex": 6
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 0
+          },
+          "nodeIndex": "dimDate",
+          "size": {
+            "height": 456,
+            "width": 234
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 488.40000000000009,
+            "y": 775
+          },
+          "nodeIndex": "_Measures",
+          "size": {
+            "height": 72,
+            "width": 219
+          },
+          "zIndex": 8,
+          "expandedHeight": 724
+        },
+        {
+          "location": {
+            "x": 5.2000000000000455,
+            "y": 770
+          },
+          "nodeIndex": "_Period",
+          "size": {
+            "height": 152,
+            "width": 215
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 240.09999999999991,
+            "y": 773
+          },
+          "nodeIndex": "Utilization",
+          "size": {
+            "height": 124,
+            "width": 234
+          },
+          "zIndex": 9
+        },
+        {
+          "location": {
+            "x": 372.20000000000005,
+            "y": 523
+          },
+          "nodeIndex": "fctWetCYActuals",
+          "size": {
+            "height": 144,
+            "width": 236
+          },
+          "zIndex": 7
+        },
+        {
+          "location": {
+            "x": 726.8,
+            "y": 774
+          },
+          "nodeIndex": "_DataRefresh",
+          "size": {
+            "height": 72,
+            "width": 234
+          },
+          "zIndex": 10,
+          "expandedHeight": 152
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": true,
+      "showExtraHeaderInfo": true,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}
