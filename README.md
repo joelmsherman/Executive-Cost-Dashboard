@@ -4,8 +4,6 @@ Executive Cost Variance Dashboard
 ## Project Objectives
 This dashboard allows executives of Ryan and Sons to monitor cost variances in key product supply chains, and to track market shares among the companies salient competitors. 
 
-Add some stuff here for testing remote sync
-
 ## Report
 
 ### Link to Report
