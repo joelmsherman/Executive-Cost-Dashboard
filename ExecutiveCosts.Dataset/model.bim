@@ -8,7 +8,7 @@
       },
       {
         "name": "PBIDesktopVersion",
-        "value": "2.118.621.0 (23.06)"
+        "value": "2.122.746.0 (23.10)"
       },
       {
         "name": "PBI_QueryOrder",
@@ -8897,67 +8897,267 @@
     "sourceQueryCulture": "en-US",
     "tables": [
       {
-        "name": "Utilization",
+        "name": "dimRegulatoryInstrument",
         "annotations": [
           {
-            "name": "PBI_Id",
-            "value": "2670d8acb9994e12a8ed646b34059375"
+            "name": "PBI_ResultType",
+            "value": "Table"
+          },
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation"
           }
         ],
         "columns": [
           {
-            "name": "Utilization",
+            "name": "RegulatoryInstrumentID",
             "annotations": [
               {
                 "name": "SummarizationSetBy",
-                "value": "User"
+                "value": "Automatic"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
               }
             ],
             "dataType": "int64",
-            "extendedProperties": [
+            "description": "primary key",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "c028ac83-6d82-4644-8322-9431e1b1c526",
+            "sourceColumn": "RegulatoryInstrumentID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "InstrumentLabel",
+            "annotations": [
               {
-                "name": "ParameterMetadata",
-                "type": "json",
-                "value": {
-                  "version": 0
-                }
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
               }
             ],
-            "formatString": "0",
-            "isDataTypeInferred": true,
-            "isNameInferred": false,
-            "lineageTag": "a0a4429e-02d4-456c-a3ea-d917df443750",
-            "sourceColumn": "[Value]",
-            "summarizeBy": "none",
-            "type": "calculatedTableColumn"
+            "changedProperties": [
+              {
+                "property": "SortByColumn"
+              }
+            ],
+            "dataType": "string",
+            "description": "Full instrument label",
+            "lineageTag": "f37df8f2-d256-4dfb-af96-12d6b3b1e98a",
+            "sortByColumn": "ReferenceNumber",
+            "sourceColumn": "InstrumentLabel",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "ReferenceNumber",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "description": "P&C tag/identifier for the instrument",
+            "lineageTag": "6952298e-b6ce-47f3-b863-36ba0c3595f8",
+            "sourceColumn": "ReferenceNumber",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "ReportingEntity",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "description": "Facility, hauler or generator which owns the instrument.  If the instrument is owned by multiple entities, \"Multiple entities\" is used.",
+            "lineageTag": "bb1526ca-ed11-4526-a496-0b23ed6639ac",
+            "sourceColumn": "ReportingEntity",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Direction",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "description": "Whether the instrument governs incoming flows or outgoing flows",
+            "lineageTag": "df3da23f-647c-4150-864b-e98da227a5c2",
+            "sourceColumn": "Direction",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Material",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "description": "The material that the instrument governs.  If the instrument governs multple material types, \"Multiple materials\" is used.",
+            "lineageTag": "7c8e1384-d68c-470a-8302-924febca5027",
+            "sourceColumn": "Material",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Destination",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "description": "The destination governed by the instrument limit.  If the instrument governs multiple destinations, \"Multiple destinations\" is used.",
+            "lineageTag": "548ced00-4823-4ee8-aaa2-d5f7b61824f5",
+            "sourceColumn": "Destination",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "TonnageLimit",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
+            "dataType": "int64",
+            "description": "tonnage limit associated with instrument",
+            "formatString": "0,0",
+            "isHidden": true,
+            "lineageTag": "b26aefad-b09a-43d2-bc16-7861a92496bb",
+            "sourceColumn": "TonnageLimit",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Inactive",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
+            "dataType": "boolean",
+            "description": "indicates whether the instrument is active (0) or inactive (1).",
+            "formatString": "\"TRUE\";\"TRUE\";\"FALSE\"",
+            "isHidden": true,
+            "lineageTag": "987a3aea-5eb8-42b0-b1f2-29acac053392",
+            "sourceColumn": "Inactive",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "AllocRelated",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
+            "dataType": "boolean",
+            "description": "Binary indicating whether the instrument pertains to wet waste tonnage allocations or not",
+            "formatString": "\"TRUE\";\"TRUE\";\"FALSE\"",
+            "isHidden": true,
+            "lineageTag": "31bccd75-94b7-4199-b448-3a3057b76484",
+            "sourceColumn": "AllocRelated",
+            "summarizeBy": "none"
           }
         ],
-        "description": "Utilization parameter",
-        "lineageTag": "488880ab-19a1-48f8-9aad-f9d212ad2231",
+        "description": "Regulatory instruments, including their tonnage limits and other metadata",
+        "lineageTag": "eb9b451b-1c0d-4de9-9874-40232b12d4d7",
         "partitions": [
           {
-            "name": "Utilization-7dce5a6a-788c-46ff-88eb-c10e3ffa61ff",
+            "name": "dimRegulatoryInstrument-d18a226e-0439-497e-8c4a-69bf682f540e",
             "mode": "import",
             "source": {
-              "expression": "GENERATESERIES(50, 100, 1)",
-              "type": "calculated"
+              "expression": [
+                "let",
+                "    // Source Reference",
+                "    Source = M_ComplianceReport_ActualsExpected,",
+                "    ",
+                "    // Remove tonnage-related columns",
+                "    #\"Removed Columns\" = Table.RemoveColumns(Source,{\"RepPeriod\", \"ActualTons\", \"ExpectedTons\"}),",
+                "    ",
+                "    // Rename id column to conform to dim table name",
+                "    #\"Renamed Columns\" = Table.RenameColumns(#\"Removed Columns\",{{\"RegulatoryInstrumentLimitId\", \"RegulatoryInstrumentID\"}}),",
+                "    ",
+                "    // De-duplicate ids",
+                "    #\"Removed Duplicates\" = Table.Distinct(#\"Renamed Columns\"),",
+                "    #\"Changed Type\" = Table.TransformColumnTypes(#\"Removed Duplicates\",{{\"Inactive\", type logical}, {\"AllocRelated\", type logical}})",
+                "in",
+                "    #\"Changed Type\""
+              ],
+              "type": "m"
             }
           }
         ]
       },
       {
-        "name": "_DataRefresh",
+        "name": "dimForecastVintage",
         "annotations": [
-          {
-            "name": "PBI_NavigationStepName",
-            "value": "Navigation"
-          },
           {
             "name": "PBI_ResultType",
             "value": "Table"
           }
         ],
         "columns": [
+          {
+            "name": "VintageID",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "description": "primary key",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "853c0f78-9e4a-4c25-b619-2bf954c87615",
+            "sourceColumn": "VintageID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "VintageName",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "SortByColumn"
+              }
+            ],
+            "dataType": "string",
+            "description": "Vintage name.  Most \"official\" wet forecasts using the Fall vintage of the previous year; so if the current purview of the report is 2023, use Fall 2022 vintage",
+            "lineageTag": "461805d9-f268-4d3d-97f5-918d5eca5e2b",
+            "sortByColumn": "Date",
+            "sourceColumn": "VintageName",
+            "summarizeBy": "none"
+          },
           {
             "name": "Date",
             "annotations": [
@@ -8976,28 +9176,104 @@
               }
             ],
             "dataType": "dateTime",
-            "formatString": "Long Date",
+            "description": "Sort column to ensure VintageName sorts from oldest to newest",
+            "formatString": "Short Date",
             "isHidden": true,
-            "lineageTag": "4a3ff232-f375-47e3-92c9-256a9dcbf6e0",
+            "lineageTag": "f2d65131-5679-4cfe-a253-b9643f5f9225",
             "sourceColumn": "Date",
             "summarizeBy": "none"
+          }
+        ],
+        "description": "Vintage names",
+        "lineageTag": "991be43f-3e71-428e-91cc-a206ef2803cb",
+        "partitions": [
+          {
+            "name": "dimForecastVintage-4d83e240-d5e9-485c-8574-577c3bb7cd6e",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    // Reference source query",
+                "    Source = M_ComplianceReport_WetForecasts,",
+                "",
+                "    // Select vintage name",
+                "    #\"Removed Other Columns\" = Table.SelectColumns(Source,{\"VintageName\"}),",
+                "",
+                "    // De-duplicate",
+                "    #\"Removed Duplicates\" = Table.Distinct(#\"Removed Other Columns\"),",
+                "",
+                "    // Add primary key",
+                "    #\"Added Index\" = Table.AddIndexColumn(#\"Removed Duplicates\", \"Index\", 1, 1, Int64.Type),",
+                "",
+                "    // Tidy-up",
+                "    #\"Reordered Columns\" = Table.ReorderColumns(#\"Added Index\",{\"Index\", \"VintageName\"}),",
+                "    #\"Renamed Columns\" = Table.RenameColumns(#\"Reordered Columns\",{{\"Index\", \"VintageID\"}}),",
+                "",
+                "    // Create a sort column for Vintage",
+                "    AddDateColumn = Table.AddColumn(#\"Renamed Columns\", \"Date\", each ",
+                "        let",
+                "            Vintage = Text.Split([VintageName], \" \"),",
+                "            Season = Vintage{0},",
+                "            Year = Number.FromText(Vintage{1}),",
+                "            Month = ",
+                "                if Season = \"Fall\" then 10 ",
+                "                else if Season = \"Annual\" then 10",
+                "                else if Season = \"Winter\" then 1 ",
+                "                else if Season = \"Spring\" then 4 ",
+                "                else if Season = \"Summer\" then 7 ",
+                "                else null ",
+                "        in ",
+                "            #date(Year, Month, 1)),",
+                "    #\"Changed Type\" = Table.TransformColumnTypes(AddDateColumn,{{\"Date\", type date}})",
+                "in",
+                "    #\"Changed Type\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "fctTonnage",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
           },
           {
-            "name": "DateTime",
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation"
+          }
+        ],
+        "changedProperties": [
+          {
+            "property": "IsHidden"
+          }
+        ],
+        "columns": [
+          {
+            "name": "RegulatoryInstrumentLimitId",
             "annotations": [
               {
                 "name": "SummarizationSetBy",
                 "value": "Automatic"
               }
             ],
-            "dataType": "dateTime",
-            "formatString": "General Date",
-            "lineageTag": "02b6c487-5681-4839-a1fa-675a49bdf76b",
-            "sourceColumn": "DateTime",
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
+            "dataType": "int64",
+            "description": "foreign key to regulatory instrument table",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "2574c2ba-258e-4c67-90c5-ec17fa045aa8",
+            "sourceColumn": "RegulatoryInstrumentLimitId",
             "summarizeBy": "none"
           },
           {
-            "name": "Time",
+            "name": "RepPeriod",
             "annotations": [
               {
                 "name": "SummarizationSetBy",
@@ -9005,7 +9281,7 @@
               },
               {
                 "name": "UnderlyingDateTimeDataType",
-                "value": "Time"
+                "value": "Date"
               }
             ],
             "changedProperties": [
@@ -9014,51 +9290,544 @@
               }
             ],
             "dataType": "dateTime",
-            "formatString": "Long Time",
+            "description": "foreign key to calendar table",
+            "formatString": "mm/dd/yy",
             "isHidden": true,
-            "lineageTag": "2e191852-985d-4f68-bd1b-ce1032b82910",
-            "sourceColumn": "Time",
+            "lineageTag": "879b37ae-d946-4c8b-98f0-ec2f04fcd3cb",
+            "sourceColumn": "RepPeriod",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "ActualTons",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
+            "dataType": "double",
+            "description": "actual tons accrued to the reporting period",
+            "isHidden": true,
+            "lineageTag": "a5e237eb-7d47-44a6-8da6-0ddf7a7b227e",
+            "sourceColumn": "ActualTons",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "ExpectedTons",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
+            "dataType": "double",
+            "description": "expected tons accrued to the reporting period",
+            "isHidden": true,
+            "lineageTag": "4131a49f-c631-4289-acf5-624a6f891581",
+            "sourceColumn": "ExpectedTons",
             "summarizeBy": "none"
           }
         ],
-        "description": "Holds model refresh statistics",
-        "lineageTag": "76a15fec-3597-4253-b7cc-f42aabdf31d3",
+        "description": "Monthly tonnage accruals by instrument",
+        "isHidden": true,
+        "lineageTag": "667285af-5e85-411f-9d24-57523e0402b7",
         "partitions": [
           {
-            "name": "_DataRefresh-e6c9ec01-4aab-4406-aa48-ada25aeffa8c",
+            "name": "fctTonnage-41bbb42e-6f01-41f0-b02d-8fabd1a13dee",
             "mode": "import",
-            "queryGroup": "Containers",
             "source": {
               "expression": [
                 "let",
-                "",
-                "SummerTimeStartDate = Date.StartOfWeek(#date(Date.Year(DateTime.LocalNow()), 3, 14), Day.Sunday),",
-                "WinterTimeStartDate = Date.StartOfWeek(#date(Date.Year(DateTime.LocalNow()), 10, 14), Day.Sunday),",
-                "",
-                "Timezonehours = if DateTimeZone.RemoveZone(DateTimeZone.UtcNow()) < SummerTimeStartDate & #time(1, 0, 0) or",
-                "DateTimeZone.RemoveZone(DateTimeZone.UtcNow()) > WinterTimeStartDate & #time(1, 0, 0) then",
-                "-8 else -7,",
-                "",
-                "#\"Date and Time\" = DateTimeZone.SwitchZone(DateTimeZone.UtcNow(), Timezonehours, 0),",
-                "",
-                "#\"Converted to Table\" = #table(1, {{#\"Date and Time\"}}),",
-                "",
-                "#\"Renamed Columns\" = Table.RenameColumns(#\"Converted to Table\",{{\"Column1\", \"DateTime\"}}),",
-                "",
-                "#\"Changed Type\" = Table.TransformColumnTypes(#\"Renamed Columns\",{{\"DateTime\", type datetimezone}}),",
-                "",
-                "#\"Duplicated Column\" = Table.DuplicateColumn(#\"Changed Type\", \"DateTime\", \"DateTime - Copy\"),",
-                "",
-                "#\"Renamed Columns1\" = Table.RenameColumns(#\"Duplicated Column\",{{\"DateTime - Copy\", \"Date\"}}),",
-                "",
-                "#\"Duplicated Column1\" = Table.DuplicateColumn(#\"Renamed Columns1\", \"Date\", \"Date - Copy\"),",
-                "",
-                "#\"Changed Type1\" = Table.TransformColumnTypes(#\"Duplicated Column1\",{{\"Date - Copy\", type time}, {\"Date\", type date}}),",
-                "",
-                "#\"Renamed Columns2\" = Table.RenameColumns(#\"Changed Type1\",{{\"Date - Copy\", \"Time\"}})",
+                "    // Reference source query",
+                "    Source = M_ComplianceReport_ActualsExpected,",
+                "    ",
+                "    // Remove reg instrument-related columns",
+                "    #\"Removed Columns\" = Table.RemoveColumns(Source,{\"InstrumentLabel\", \"ReferenceNumber\", \"ReportingEntity\", \"Direction\", \"Material\", \"Destination\", \"TonnageLimit\", \"AllocRelated\", \"Inactive\"})",
                 "in",
+                "    #\"Removed Columns\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "fctWetCYForecasts",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "changedProperties": [
+          {
+            "property": "IsHidden"
+          }
+        ],
+        "columns": [
+          {
+            "name": "RepPeriod",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Date"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
+            "dataType": "dateTime",
+            "description": "foreign key to Calendar table",
+            "formatString": "Short Date",
+            "isHidden": true,
+            "lineageTag": "7d351fc5-cb19-48b1-b9dc-59eb5639b445",
+            "sourceColumn": "RepPeriod",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Forecast",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
+            "dataType": "int64",
+            "description": "Amount of tons forecasted for the CY and vintage",
+            "formatString": "0,0",
+            "isHidden": true,
+            "lineageTag": "dfe6c007-09f9-4b6a-8978-3c19a0aed0ca",
+            "sourceColumn": "Forecast",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "VintageID",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
+            "dataType": "int64",
+            "description": "foreign key to the vintage table",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "ac6f1141-4b4c-4b27-9d0f-34c3f078ab91",
+            "sourceColumn": "VintageID",
+            "summarizeBy": "none"
+          }
+        ],
+        "description": "Wet waste forecasts by period and vintage",
+        "isHidden": true,
+        "lineageTag": "6b343646-3d74-47bc-89f6-cd7793fe6168",
+        "partitions": [
+          {
+            "name": "fctWetCYForecasts-c0b9736f-701a-48bf-a42c-8a3d3908d6e3",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    // Reference source query",
+                "    Source = M_ComplianceReport_WetForecasts,",
                 "",
-                "#\"Renamed Columns2\""
+                "    // Merge vintage id into vintage name and remove vintage name",
+                "    #\"Merged Queries\" = Table.NestedJoin(Source, {\"VintageName\"}, dimForecastVintage, {\"VintageName\"}, \"dimForecastVintage\", JoinKind.LeftOuter),",
+                "    #\"Expanded dimForecastVintage\" = Table.ExpandTableColumn(#\"Merged Queries\", \"dimForecastVintage\", {\"VintageID\"}, {\"VintageID\"}),",
+                "    #\"Removed Columns\" = Table.RemoveColumns(#\"Expanded dimForecastVintage\",{\"VintageName\"}),",
+                "    #\"Renamed Columns\" = Table.RenameColumns(#\"Removed Columns\",{{\"Tons\", \"Forecast\"}})",
+                "in",
+                "    #\"Renamed Columns\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "dimDate",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "changedProperties": [
+          {
+            "property": "IsHidden"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Date"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isDateTimeCustom\":true}"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "FormatString"
+              },
+              {
+                "property": "SortByColumn"
+              },
+              {
+                "property": "IsHidden"
+              }
+            ],
+            "dataType": "dateTime",
+            "description": "primary key",
+            "formatString": "mm/dd/yy",
+            "lineageTag": "ef1ff686-6eee-4409-bc07-16915353633d",
+            "sourceColumn": "Date",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Year",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "SortByColumn"
+              },
+              {
+                "property": "IsHidden"
+              }
+            ],
+            "dataType": "int64",
+            "description": "calendar year",
+            "formatString": "0",
+            "lineageTag": "bf31e712-34ff-43c1-8804-3b03cfe2444c",
+            "sortByColumn": "CurrYearOffset",
+            "sourceColumn": "Year",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "CurrYearOffset",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
+            "dataType": "int64",
+            "description": "Year helper column: how many years date is from current year (is always <=0)",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "0c99a076-2207-4b8c-ad17-1926e6745bd1",
+            "sourceColumn": "CurrYearOffset",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "YearCompleted",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
+            "dataType": "boolean",
+            "description": "Year helper column: whether year of the date is completed (for showing only completed years)",
+            "formatString": "\"TRUE\";\"TRUE\";\"FALSE\"",
+            "isHidden": true,
+            "lineageTag": "64c11bc5-11ce-42e7-ac0e-af3944b1009d",
+            "sourceColumn": "YearCompleted",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Quarter Number",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
+            "dataType": "int64",
+            "description": "quarter number (1 - 4)",
+            "formatString": "0",
+            "lineageTag": "68d8009a-cb41-4efc-b097-af12cb89f287",
+            "sourceColumn": "Quarter Number",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "QuarternYear",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "605df38a-b808-4008-9658-078377115882",
+            "sourceColumn": "QuarternYear",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Month",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
+            "dataType": "int64",
+            "description": "month number (1 - 12)",
+            "formatString": "0",
+            "lineageTag": "69c0d62e-807a-440d-bc24-c47bbd938244",
+            "sourceColumn": "Month",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Start of Month",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Date"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isDateTimeCustom\":true}"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "FormatString"
+              },
+              {
+                "property": "IsHidden"
+              }
+            ],
+            "dataType": "dateTime",
+            "description": "first of the month for the current date",
+            "formatString": "mm/dd/yy",
+            "lineageTag": "2965c7fa-2ba8-4ab5-b60b-c693f02fd959",
+            "sourceColumn": "Start of Month",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Month & Year",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
+            "dataType": "string",
+            "description": "month year string for visuals",
+            "lineageTag": "bd3675d0-189d-4c41-8cb7-324921273527",
+            "sortByColumn": "MonthnYear",
+            "sourceColumn": "Month & Year",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "MonthnYear",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
+            "dataType": "int64",
+            "description": "month & year helper: used to sort",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "fce59c2d-bc38-491c-b041-1ba3b50366c7",
+            "sourceColumn": "MonthnYear",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "MonthCompleted",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
+            "dataType": "boolean",
+            "description": "month helper column: whether month of the date is completed (for showing only completed months)",
+            "formatString": "\"TRUE\";\"TRUE\";\"FALSE\"",
+            "isHidden": true,
+            "lineageTag": "d590f26e-77ac-46f2-8bd9-6b81b870b0f7",
+            "sourceColumn": "MonthCompleted",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "DateWithData",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
+            "dataType": "boolean",
+            "expression": [
+              "",
+              "dimDate[Date] <= MAX ( fctTonnage[RepPeriod] )"
+            ],
+            "formatString": "\"TRUE\";\"TRUE\";\"FALSE\"",
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "lineageTag": "225bd252-3a62-4366-a858-872513fbcbad",
+            "summarizeBy": "none",
+            "type": "calculated"
+          }
+        ],
+        "description": "Calendar table (Dynamic M Date Table, by Melissa de Korte)",
+        "lineageTag": "1cb9fdea-6e64-49fd-926e-46ee9e1b60e2",
+        "measures": [
+          {
+            "name": "ShowValueForDates",
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
+            "description": [
+              "This calculation determines whether the first date visible in the data set is before or after the last date with data",
+              "=====",
+              "",
+              "VAR LastDateWithData =",
+              "    CALCULATE (",
+              "        MAX ( fctTonnage[RepPeriod] ),",
+              "        REMOVEFILTERS ()",
+              "    )",
+              "VAR FirstDateVisible =",
+              "    MIN ( dimDate[Date] )",
+              "VAR Result =",
+              "    FirstDateVisible <= LastDateWithData",
+              "RETURN",
+              "    Result"
+            ],
+            "expression": [
+              "",
+              "VAR LastDateWithData =",
+              "    CALCULATE (",
+              "        MAX ( fctTonnage[RepPeriod] ),",
+              "        REMOVEFILTERS ()",
+              "    )",
+              "VAR FirstDateVisible =",
+              "    MIN ( dimDate[Date] )",
+              "VAR Result =",
+              "    FirstDateVisible <= LastDateWithData",
+              "RETURN",
+              "    Result"
+            ],
+            "formatString": "\"TRUE\";\"TRUE\";\"FALSE\"",
+            "isHidden": true,
+            "lineageTag": "293640e7-4caa-4dfc-a16f-e3b57e7d4e74"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "dimDate-03502966-729e-4bb0-be8b-1a84bae69eda",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = fxDateTable(fxStartDate, fxEndDate, 7, null, null, null)",
+                ",",
+                "// Post-report column removal by Measure Killer",
+                "#\"Columns removed by Measure Killer\"= Table.RemoveColumns(    Source,{\"Fiscal Week\",\"Week & Year\",\"DateInt\",\"Fiscal Period\",\"CurrDayOffset\",\"ISO Quarter & Year\",\"Fiscal Quarter\",\"Quarter & Year\",\"Month Initial\",\"Month Name\",\"Month Short\",\"Fiscal Year\",\"Quarter\",\"ISO Quarter\",\"Day of Week Name\",\"Day of Week Initial\",\"Day Type\",\"IsHoliday\",\"End of Month\",\"FWeeknYear\",\"End of Week\",\"Start of Week\",\"WeeknYear\",\"FPeriodnYear\",\"CurrMonthOffset\",\"CurrWeekOffset\",\"Week Number\",\"End of Quarter\",\"Start of Quarter\",\"ISO QuarternYear\",\"ISO CurrQuarterOffset\",\"FQuarternYear\",\"CurrQuarterOffset\",\"Day of Month\",\"Fiscal CurrYearOffset\",\"ISO CurrYearOffset\",\"ISO Year\",\"Day of Week Number\",\"IsBusinessDay\",\"IsWeekDay\",\"IsPFYTD\",\"IsCurrentFQ\",\"IsPYTD\",\"IsCurrentFP\",\"IsAfterToday\",\"IsCurrentFY\",\"WeekCompleted\",\"QuarterCompleted\",\"IsCurrentFW\"})",
+                "in",
+                "#\"Columns removed by Measure Killer\""
               ],
               "type": "m"
             }
@@ -9540,6 +10309,20 @@
         ],
         "columns": [
           {
+            "name": "Period ID",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "8d3b4552-1e5f-48c4-a08d-95e0c770e8d7",
+            "sourceColumn": "Period ID",
+            "summarizeBy": "none"
+          },
+          {
             "name": "Period",
             "annotations": [
               {
@@ -9556,20 +10339,6 @@
             "lineageTag": "b945214e-6a30-4908-a138-ef59c860b165",
             "sortByColumn": "Period ID",
             "sourceColumn": "Period",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "Period ID",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "User"
-              }
-            ],
-            "dataType": "int64",
-            "formatString": "0",
-            "lineageTag": "8d3b4552-1e5f-48c4-a08d-95e0c770e8d7",
-            "sourceColumn": "Period ID",
             "summarizeBy": "none"
           }
         ],
@@ -9602,831 +10371,50 @@
         ]
       },
       {
-        "name": "dimDate",
+        "name": "Utilization",
         "annotations": [
           {
-            "name": "PBI_ResultType",
-            "value": "Table"
-          }
-        ],
-        "changedProperties": [
-          {
-            "property": "IsHidden"
+            "name": "PBI_Id",
+            "value": "2670d8acb9994e12a8ed646b34059375"
           }
         ],
         "columns": [
           {
-            "name": "CurrYearOffset",
+            "name": "Utilization",
             "annotations": [
               {
                 "name": "SummarizationSetBy",
                 "value": "User"
               }
             ],
-            "changedProperties": [
-              {
-                "property": "IsHidden"
-              }
-            ],
             "dataType": "int64",
-            "description": "Year helper column: how many years date is from current year (is always <=0)",
+            "extendedProperties": [
+              {
+                "name": "ParameterMetadata",
+                "type": "json",
+                "value": {
+                  "version": 0
+                }
+              }
+            ],
             "formatString": "0",
-            "isHidden": true,
-            "lineageTag": "0c99a076-2207-4b8c-ad17-1926e6745bd1",
-            "sourceColumn": "CurrYearOffset",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "Date",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              },
-              {
-                "name": "UnderlyingDateTimeDataType",
-                "value": "Date"
-              },
-              {
-                "name": "PBI_FormatHint",
-                "value": "{\"isDateTimeCustom\":true}"
-              }
-            ],
-            "changedProperties": [
-              {
-                "property": "FormatString"
-              },
-              {
-                "property": "SortByColumn"
-              },
-              {
-                "property": "IsHidden"
-              }
-            ],
-            "dataType": "dateTime",
-            "description": "primary key",
-            "formatString": "mm/dd/yy",
-            "lineageTag": "ef1ff686-6eee-4409-bc07-16915353633d",
-            "sourceColumn": "Date",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "DateWithData",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "changedProperties": [
-              {
-                "property": "IsHidden"
-              }
-            ],
-            "dataType": "boolean",
-            "expression": [
-              "",
-              "dimDate[Date] <= MAX ( fctTonnage[RepPeriod] )"
-            ],
-            "formatString": "\"TRUE\";\"TRUE\";\"FALSE\"",
             "isDataTypeInferred": true,
-            "isHidden": true,
-            "lineageTag": "225bd252-3a62-4366-a858-872513fbcbad",
+            "isNameInferred": false,
+            "lineageTag": "a0a4429e-02d4-456c-a3ea-d917df443750",
+            "sourceColumn": "[Value]",
             "summarizeBy": "none",
-            "type": "calculated"
-          },
-          {
-            "name": "Month",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "User"
-              }
-            ],
-            "changedProperties": [
-              {
-                "property": "IsHidden"
-              }
-            ],
-            "dataType": "int64",
-            "description": "month number (1 - 12)",
-            "formatString": "0",
-            "lineageTag": "69c0d62e-807a-440d-bc24-c47bbd938244",
-            "sourceColumn": "Month",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "Month & Year",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "changedProperties": [
-              {
-                "property": "IsHidden"
-              }
-            ],
-            "dataType": "string",
-            "description": "month year string for visuals",
-            "lineageTag": "bd3675d0-189d-4c41-8cb7-324921273527",
-            "sortByColumn": "MonthnYear",
-            "sourceColumn": "Month & Year",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "MonthCompleted",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "changedProperties": [
-              {
-                "property": "IsHidden"
-              }
-            ],
-            "dataType": "boolean",
-            "description": "month helper column: whether month of the date is completed (for showing only completed months)",
-            "formatString": "\"TRUE\";\"TRUE\";\"FALSE\"",
-            "isHidden": true,
-            "lineageTag": "d590f26e-77ac-46f2-8bd9-6b81b870b0f7",
-            "sourceColumn": "MonthCompleted",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "MonthnYear",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "User"
-              }
-            ],
-            "changedProperties": [
-              {
-                "property": "IsHidden"
-              }
-            ],
-            "dataType": "int64",
-            "description": "month & year helper: used to sort",
-            "formatString": "0",
-            "isHidden": true,
-            "lineageTag": "fce59c2d-bc38-491c-b041-1ba3b50366c7",
-            "sourceColumn": "MonthnYear",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "Quarter Number",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "User"
-              }
-            ],
-            "changedProperties": [
-              {
-                "property": "IsHidden"
-              }
-            ],
-            "dataType": "int64",
-            "description": "quarter number (1 - 4)",
-            "formatString": "0",
-            "lineageTag": "68d8009a-cb41-4efc-b097-af12cb89f287",
-            "sourceColumn": "Quarter Number",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "QuarternYear",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "User"
-              }
-            ],
-            "changedProperties": [
-              {
-                "property": "IsHidden"
-              }
-            ],
-            "dataType": "int64",
-            "formatString": "0",
-            "isHidden": true,
-            "lineageTag": "605df38a-b808-4008-9658-078377115882",
-            "sourceColumn": "QuarternYear",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "Start of Month",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              },
-              {
-                "name": "UnderlyingDateTimeDataType",
-                "value": "Date"
-              },
-              {
-                "name": "PBI_FormatHint",
-                "value": "{\"isDateTimeCustom\":true}"
-              }
-            ],
-            "changedProperties": [
-              {
-                "property": "FormatString"
-              },
-              {
-                "property": "IsHidden"
-              }
-            ],
-            "dataType": "dateTime",
-            "description": "first of the month for the current date",
-            "formatString": "mm/dd/yy",
-            "lineageTag": "2965c7fa-2ba8-4ab5-b60b-c693f02fd959",
-            "sourceColumn": "Start of Month",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "Year",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "User"
-              }
-            ],
-            "changedProperties": [
-              {
-                "property": "SortByColumn"
-              },
-              {
-                "property": "IsHidden"
-              }
-            ],
-            "dataType": "int64",
-            "description": "calendar year",
-            "formatString": "0",
-            "lineageTag": "bf31e712-34ff-43c1-8804-3b03cfe2444c",
-            "sortByColumn": "CurrYearOffset",
-            "sourceColumn": "Year",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "YearCompleted",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "changedProperties": [
-              {
-                "property": "IsHidden"
-              }
-            ],
-            "dataType": "boolean",
-            "description": "Year helper column: whether year of the date is completed (for showing only completed years)",
-            "formatString": "\"TRUE\";\"TRUE\";\"FALSE\"",
-            "isHidden": true,
-            "lineageTag": "64c11bc5-11ce-42e7-ac0e-af3944b1009d",
-            "sourceColumn": "YearCompleted",
-            "summarizeBy": "none"
+            "type": "calculatedTableColumn"
           }
         ],
-        "description": "Calendar table (Dynamic M Date Table, by Melissa de Korte)",
-        "lineageTag": "1cb9fdea-6e64-49fd-926e-46ee9e1b60e2",
-        "measures": [
-          {
-            "name": "ShowValueForDates",
-            "changedProperties": [
-              {
-                "property": "IsHidden"
-              }
-            ],
-            "description": [
-              "This calculation determines whether the first date visible in the data set is before or after the last date with data",
-              "=====",
-              "",
-              "VAR LastDateWithData =",
-              "    CALCULATE (",
-              "        MAX ( fctTonnage[RepPeriod] ),",
-              "        REMOVEFILTERS ()",
-              "    )",
-              "VAR FirstDateVisible =",
-              "    MIN ( dimDate[Date] )",
-              "VAR Result =",
-              "    FirstDateVisible <= LastDateWithData",
-              "RETURN",
-              "    Result"
-            ],
-            "expression": [
-              "",
-              "VAR LastDateWithData =",
-              "    CALCULATE (",
-              "        MAX ( fctTonnage[RepPeriod] ),",
-              "        REMOVEFILTERS ()",
-              "    )",
-              "VAR FirstDateVisible =",
-              "    MIN ( dimDate[Date] )",
-              "VAR Result =",
-              "    FirstDateVisible <= LastDateWithData",
-              "RETURN",
-              "    Result"
-            ],
-            "formatString": "\"TRUE\";\"TRUE\";\"FALSE\"",
-            "isHidden": true,
-            "lineageTag": "293640e7-4caa-4dfc-a16f-e3b57e7d4e74"
-          }
-        ],
+        "description": "Utilization parameter",
+        "lineageTag": "488880ab-19a1-48f8-9aad-f9d212ad2231",
         "partitions": [
           {
-            "name": "dimDate-03502966-729e-4bb0-be8b-1a84bae69eda",
+            "name": "Utilization-7dce5a6a-788c-46ff-88eb-c10e3ffa61ff",
             "mode": "import",
             "source": {
-              "expression": [
-                "let",
-                "    Source = fxDateTable(fxStartDate, fxEndDate, 7, null, null, null)",
-                ",",
-                "// Post-report column removal by Measure Killer",
-                "#\"Columns removed by Measure Killer\"= Table.RemoveColumns(    Source,{\"Fiscal Week\",\"Week & Year\",\"DateInt\",\"Fiscal Period\",\"CurrDayOffset\",\"ISO Quarter & Year\",\"Fiscal Quarter\",\"Quarter & Year\",\"Month Initial\",\"Month Name\",\"Month Short\",\"Fiscal Year\",\"Quarter\",\"ISO Quarter\",\"Day of Week Name\",\"Day of Week Initial\",\"Day Type\",\"IsHoliday\",\"End of Month\",\"FWeeknYear\",\"End of Week\",\"Start of Week\",\"WeeknYear\",\"FPeriodnYear\",\"CurrMonthOffset\",\"CurrWeekOffset\",\"Week Number\",\"End of Quarter\",\"Start of Quarter\",\"ISO QuarternYear\",\"ISO CurrQuarterOffset\",\"FQuarternYear\",\"CurrQuarterOffset\",\"Day of Month\",\"Fiscal CurrYearOffset\",\"ISO CurrYearOffset\",\"ISO Year\",\"Day of Week Number\",\"IsBusinessDay\",\"IsWeekDay\",\"IsPFYTD\",\"IsCurrentFQ\",\"IsPYTD\",\"IsCurrentFP\",\"IsAfterToday\",\"IsCurrentFY\",\"WeekCompleted\",\"QuarterCompleted\",\"IsCurrentFW\"})",
-                "in",
-                "#\"Columns removed by Measure Killer\""
-              ],
-              "type": "m"
-            }
-          }
-        ]
-      },
-      {
-        "name": "dimForecastVintage",
-        "annotations": [
-          {
-            "name": "PBI_ResultType",
-            "value": "Table"
-          }
-        ],
-        "columns": [
-          {
-            "name": "Date",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              },
-              {
-                "name": "UnderlyingDateTimeDataType",
-                "value": "Date"
-              }
-            ],
-            "changedProperties": [
-              {
-                "property": "IsHidden"
-              }
-            ],
-            "dataType": "dateTime",
-            "description": "Sort column to ensure VintageName sorts from oldest to newest",
-            "formatString": "Short Date",
-            "isHidden": true,
-            "lineageTag": "f2d65131-5679-4cfe-a253-b9643f5f9225",
-            "sourceColumn": "Date",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "VintageID",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "int64",
-            "description": "primary key",
-            "formatString": "0",
-            "isHidden": true,
-            "lineageTag": "853c0f78-9e4a-4c25-b619-2bf954c87615",
-            "sourceColumn": "VintageID",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "VintageName",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "changedProperties": [
-              {
-                "property": "SortByColumn"
-              }
-            ],
-            "dataType": "string",
-            "description": "Vintage name.  Most \"official\" wet forecasts using the Fall vintage of the previous year; so if the current purview of the report is 2023, use Fall 2022 vintage",
-            "lineageTag": "461805d9-f268-4d3d-97f5-918d5eca5e2b",
-            "sortByColumn": "Date",
-            "sourceColumn": "VintageName",
-            "summarizeBy": "none"
-          }
-        ],
-        "description": "Vintage names",
-        "lineageTag": "991be43f-3e71-428e-91cc-a206ef2803cb",
-        "partitions": [
-          {
-            "name": "dimForecastVintage-4d83e240-d5e9-485c-8574-577c3bb7cd6e",
-            "mode": "import",
-            "source": {
-              "expression": [
-                "let",
-                "    // Reference source query",
-                "    Source = M_ComplianceReport_WetForecasts,",
-                "",
-                "    // Select vintage name",
-                "    #\"Removed Other Columns\" = Table.SelectColumns(Source,{\"VintageName\"}),",
-                "",
-                "    // De-duplicate",
-                "    #\"Removed Duplicates\" = Table.Distinct(#\"Removed Other Columns\"),",
-                "",
-                "    // Add primary key",
-                "    #\"Added Index\" = Table.AddIndexColumn(#\"Removed Duplicates\", \"Index\", 1, 1, Int64.Type),",
-                "",
-                "    // Tidy-up",
-                "    #\"Reordered Columns\" = Table.ReorderColumns(#\"Added Index\",{\"Index\", \"VintageName\"}),",
-                "    #\"Renamed Columns\" = Table.RenameColumns(#\"Reordered Columns\",{{\"Index\", \"VintageID\"}}),",
-                "",
-                "    // Create a sort column for Vintage",
-                "    AddDateColumn = Table.AddColumn(#\"Renamed Columns\", \"Date\", each ",
-                "        let",
-                "            Vintage = Text.Split([VintageName], \" \"),",
-                "            Season = Vintage{0},",
-                "            Year = Number.FromText(Vintage{1}),",
-                "            Month = ",
-                "                if Season = \"Fall\" then 10 ",
-                "                else if Season = \"Annual\" then 10",
-                "                else if Season = \"Winter\" then 1 ",
-                "                else if Season = \"Spring\" then 4 ",
-                "                else if Season = \"Summer\" then 7 ",
-                "                else null ",
-                "        in ",
-                "            #date(Year, Month, 1)),",
-                "    #\"Changed Type\" = Table.TransformColumnTypes(AddDateColumn,{{\"Date\", type date}})",
-                "in",
-                "    #\"Changed Type\""
-              ],
-              "type": "m"
-            }
-          }
-        ]
-      },
-      {
-        "name": "dimRegulatoryInstrument",
-        "annotations": [
-          {
-            "name": "PBI_ResultType",
-            "value": "Table"
-          },
-          {
-            "name": "PBI_NavigationStepName",
-            "value": "Navigation"
-          }
-        ],
-        "columns": [
-          {
-            "name": "AllocRelated",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "changedProperties": [
-              {
-                "property": "IsHidden"
-              }
-            ],
-            "dataType": "boolean",
-            "description": "Binary indicating whether the instrument pertains to wet waste tonnage allocations or not",
-            "formatString": "\"TRUE\";\"TRUE\";\"FALSE\"",
-            "isHidden": true,
-            "lineageTag": "31bccd75-94b7-4199-b448-3a3057b76484",
-            "sourceColumn": "AllocRelated",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "Destination",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "string",
-            "description": "The destination governed by the instrument limit.  If the instrument governs multiple destinations, \"Multiple destinations\" is used.",
-            "lineageTag": "548ced00-4823-4ee8-aaa2-d5f7b61824f5",
-            "sourceColumn": "Destination",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "Direction",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "string",
-            "description": "Whether the instrument governs incoming flows or outgoing flows",
-            "lineageTag": "df3da23f-647c-4150-864b-e98da227a5c2",
-            "sourceColumn": "Direction",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "Inactive",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "changedProperties": [
-              {
-                "property": "IsHidden"
-              }
-            ],
-            "dataType": "boolean",
-            "description": "indicates whether the instrument is active (0) or inactive (1).",
-            "formatString": "\"TRUE\";\"TRUE\";\"FALSE\"",
-            "isHidden": true,
-            "lineageTag": "987a3aea-5eb8-42b0-b1f2-29acac053392",
-            "sourceColumn": "Inactive",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "InstrumentLabel",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "changedProperties": [
-              {
-                "property": "SortByColumn"
-              }
-            ],
-            "dataType": "string",
-            "description": "Full instrument label",
-            "lineageTag": "f37df8f2-d256-4dfb-af96-12d6b3b1e98a",
-            "sortByColumn": "ReferenceNumber",
-            "sourceColumn": "InstrumentLabel",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "Material",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "string",
-            "description": "The material that the instrument governs.  If the instrument governs multple material types, \"Multiple materials\" is used.",
-            "lineageTag": "7c8e1384-d68c-470a-8302-924febca5027",
-            "sourceColumn": "Material",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "ReferenceNumber",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "string",
-            "description": "P&C tag/identifier for the instrument",
-            "lineageTag": "6952298e-b6ce-47f3-b863-36ba0c3595f8",
-            "sourceColumn": "ReferenceNumber",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "RegulatoryInstrumentID",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "changedProperties": [
-              {
-                "property": "IsHidden"
-              }
-            ],
-            "dataType": "int64",
-            "description": "primary key",
-            "formatString": "0",
-            "isHidden": true,
-            "lineageTag": "c028ac83-6d82-4644-8322-9431e1b1c526",
-            "sourceColumn": "RegulatoryInstrumentID",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "ReportingEntity",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "string",
-            "description": "Facility, hauler or generator which owns the instrument.  If the instrument is owned by multiple entities, \"Multiple entities\" is used.",
-            "lineageTag": "bb1526ca-ed11-4526-a496-0b23ed6639ac",
-            "sourceColumn": "ReportingEntity",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "TonnageLimit",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "changedProperties": [
-              {
-                "property": "IsHidden"
-              }
-            ],
-            "dataType": "int64",
-            "description": "tonnage limit associated with instrument",
-            "formatString": "0,0",
-            "isHidden": true,
-            "lineageTag": "b26aefad-b09a-43d2-bc16-7861a92496bb",
-            "sourceColumn": "TonnageLimit",
-            "summarizeBy": "none"
-          }
-        ],
-        "description": "Regulatory instruments, including their tonnage limits and other metadata",
-        "lineageTag": "eb9b451b-1c0d-4de9-9874-40232b12d4d7",
-        "partitions": [
-          {
-            "name": "dimRegulatoryInstrument-d18a226e-0439-497e-8c4a-69bf682f540e",
-            "mode": "import",
-            "source": {
-              "expression": [
-                "let",
-                "    // Source Reference",
-                "    Source = M_ComplianceReport_ActualsExpected,",
-                "    ",
-                "    // Remove tonnage-related columns",
-                "    #\"Removed Columns\" = Table.RemoveColumns(Source,{\"RepPeriod\", \"ActualTons\", \"ExpectedTons\"}),",
-                "    ",
-                "    // Rename id column to conform to dim table name",
-                "    #\"Renamed Columns\" = Table.RenameColumns(#\"Removed Columns\",{{\"RegulatoryInstrumentLimitId\", \"RegulatoryInstrumentID\"}}),",
-                "    ",
-                "    // De-duplicate ids",
-                "    #\"Removed Duplicates\" = Table.Distinct(#\"Renamed Columns\"),",
-                "    #\"Changed Type\" = Table.TransformColumnTypes(#\"Removed Duplicates\",{{\"Inactive\", type logical}, {\"AllocRelated\", type logical}})",
-                "in",
-                "    #\"Changed Type\""
-              ],
-              "type": "m"
-            }
-          }
-        ]
-      },
-      {
-        "name": "fctTonnage",
-        "annotations": [
-          {
-            "name": "PBI_ResultType",
-            "value": "Table"
-          },
-          {
-            "name": "PBI_NavigationStepName",
-            "value": "Navigation"
-          }
-        ],
-        "changedProperties": [
-          {
-            "property": "IsHidden"
-          }
-        ],
-        "columns": [
-          {
-            "name": "ActualTons",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "User"
-              },
-              {
-                "name": "PBI_FormatHint",
-                "value": "{\"isGeneralNumber\":true}"
-              }
-            ],
-            "changedProperties": [
-              {
-                "property": "IsHidden"
-              }
-            ],
-            "dataType": "double",
-            "description": "actual tons accrued to the reporting period",
-            "isHidden": true,
-            "lineageTag": "a5e237eb-7d47-44a6-8da6-0ddf7a7b227e",
-            "sourceColumn": "ActualTons",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "ExpectedTons",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "User"
-              },
-              {
-                "name": "PBI_FormatHint",
-                "value": "{\"isGeneralNumber\":true}"
-              }
-            ],
-            "changedProperties": [
-              {
-                "property": "IsHidden"
-              }
-            ],
-            "dataType": "double",
-            "description": "expected tons accrued to the reporting period",
-            "isHidden": true,
-            "lineageTag": "4131a49f-c631-4289-acf5-624a6f891581",
-            "sourceColumn": "ExpectedTons",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "RegulatoryInstrumentLimitId",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "changedProperties": [
-              {
-                "property": "IsHidden"
-              }
-            ],
-            "dataType": "int64",
-            "description": "foreign key to regulatory instrument table",
-            "formatString": "0",
-            "isHidden": true,
-            "lineageTag": "2574c2ba-258e-4c67-90c5-ec17fa045aa8",
-            "sourceColumn": "RegulatoryInstrumentLimitId",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "RepPeriod",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              },
-              {
-                "name": "UnderlyingDateTimeDataType",
-                "value": "Date"
-              }
-            ],
-            "changedProperties": [
-              {
-                "property": "IsHidden"
-              }
-            ],
-            "dataType": "dateTime",
-            "description": "foreign key to calendar table",
-            "formatString": "mm/dd/yy",
-            "isHidden": true,
-            "lineageTag": "879b37ae-d946-4c8b-98f0-ec2f04fcd3cb",
-            "sourceColumn": "RepPeriod",
-            "summarizeBy": "none"
-          }
-        ],
-        "description": "Monthly tonnage accruals by instrument",
-        "isHidden": true,
-        "lineageTag": "667285af-5e85-411f-9d24-57523e0402b7",
-        "partitions": [
-          {
-            "name": "fctTonnage-41bbb42e-6f01-41f0-b02d-8fabd1a13dee",
-            "mode": "import",
-            "source": {
-              "expression": [
-                "let",
-                "    // Reference source query",
-                "    Source = M_ComplianceReport_ActualsExpected,",
-                "    ",
-                "    // Remove reg instrument-related columns",
-                "    #\"Removed Columns\" = Table.RemoveColumns(Source,{\"InstrumentLabel\", \"ReferenceNumber\", \"ReportingEntity\", \"Direction\", \"Material\", \"Destination\", \"TonnageLimit\", \"AllocRelated\", \"Inactive\"})",
-                "in",
-                "    #\"Removed Columns\""
-              ],
-              "type": "m"
+              "expression": "GENERATESERIES(50, 100, 1)",
+              "type": "calculated"
             }
           }
         ]
@@ -10450,26 +10438,6 @@
         ],
         "columns": [
           {
-            "name": "Actuals",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "User"
-              }
-            ],
-            "changedProperties": [
-              {
-                "property": "IsHidden"
-              }
-            ],
-            "dataType": "int64",
-            "formatString": "0",
-            "isHidden": true,
-            "lineageTag": "ff4496b4-94a5-4f2b-9946-ff1e079cc00e",
-            "sourceColumn": "Actuals",
-            "summarizeBy": "none"
-          },
-          {
             "name": "RepPeriod",
             "annotations": [
               {
@@ -10492,6 +10460,26 @@
             "isHidden": true,
             "lineageTag": "33ddd4e0-9e79-4568-a69c-363191940fa7",
             "sourceColumn": "RepPeriod",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Actuals",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "ff4496b4-94a5-4f2b-9946-ff1e079cc00e",
+            "sourceColumn": "Actuals",
             "summarizeBy": "none"
           }
         ],
@@ -10537,42 +10525,34 @@
         ]
       },
       {
-        "name": "fctWetCYForecasts",
+        "name": "_DataRefresh",
         "annotations": [
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation"
+          },
           {
             "name": "PBI_ResultType",
             "value": "Table"
           }
         ],
-        "changedProperties": [
-          {
-            "property": "IsHidden"
-          }
-        ],
         "columns": [
           {
-            "name": "Forecast",
+            "name": "DateTime",
             "annotations": [
               {
                 "name": "SummarizationSetBy",
-                "value": "User"
+                "value": "Automatic"
               }
             ],
-            "changedProperties": [
-              {
-                "property": "IsHidden"
-              }
-            ],
-            "dataType": "int64",
-            "description": "Amount of tons forecasted for the CY and vintage",
-            "formatString": "0,0",
-            "isHidden": true,
-            "lineageTag": "dfe6c007-09f9-4b6a-8978-3c19a0aed0ca",
-            "sourceColumn": "Forecast",
+            "dataType": "dateTime",
+            "formatString": "General Date",
+            "lineageTag": "02b6c487-5681-4839-a1fa-675a49bdf76b",
+            "sourceColumn": "DateTime",
             "summarizeBy": "none"
           },
           {
-            "name": "RepPeriod",
+            "name": "Date",
             "annotations": [
               {
                 "name": "SummarizationSetBy",
@@ -10589,19 +10569,22 @@
               }
             ],
             "dataType": "dateTime",
-            "description": "foreign key to Calendar table",
-            "formatString": "Short Date",
+            "formatString": "Long Date",
             "isHidden": true,
-            "lineageTag": "7d351fc5-cb19-48b1-b9dc-59eb5639b445",
-            "sourceColumn": "RepPeriod",
+            "lineageTag": "4a3ff232-f375-47e3-92c9-256a9dcbf6e0",
+            "sourceColumn": "Date",
             "summarizeBy": "none"
           },
           {
-            "name": "VintageID",
+            "name": "Time",
             "annotations": [
               {
                 "name": "SummarizationSetBy",
                 "value": "Automatic"
+              },
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Time"
               }
             ],
             "changedProperties": [
@@ -10609,35 +10592,52 @@
                 "property": "IsHidden"
               }
             ],
-            "dataType": "int64",
-            "description": "foreign key to the vintage table",
-            "formatString": "0",
+            "dataType": "dateTime",
+            "formatString": "Long Time",
             "isHidden": true,
-            "lineageTag": "ac6f1141-4b4c-4b27-9d0f-34c3f078ab91",
-            "sourceColumn": "VintageID",
+            "lineageTag": "2e191852-985d-4f68-bd1b-ce1032b82910",
+            "sourceColumn": "Time",
             "summarizeBy": "none"
           }
         ],
-        "description": "Wet waste forecasts by period and vintage",
-        "isHidden": true,
-        "lineageTag": "6b343646-3d74-47bc-89f6-cd7793fe6168",
+        "description": "Holds model refresh statistics",
+        "lineageTag": "76a15fec-3597-4253-b7cc-f42aabdf31d3",
         "partitions": [
           {
-            "name": "fctWetCYForecasts-c0b9736f-701a-48bf-a42c-8a3d3908d6e3",
+            "name": "_DataRefresh-e6c9ec01-4aab-4406-aa48-ada25aeffa8c",
             "mode": "import",
+            "queryGroup": "Containers",
             "source": {
               "expression": [
                 "let",
-                "    // Reference source query",
-                "    Source = M_ComplianceReport_WetForecasts,",
                 "",
-                "    // Merge vintage id into vintage name and remove vintage name",
-                "    #\"Merged Queries\" = Table.NestedJoin(Source, {\"VintageName\"}, dimForecastVintage, {\"VintageName\"}, \"dimForecastVintage\", JoinKind.LeftOuter),",
-                "    #\"Expanded dimForecastVintage\" = Table.ExpandTableColumn(#\"Merged Queries\", \"dimForecastVintage\", {\"VintageID\"}, {\"VintageID\"}),",
-                "    #\"Removed Columns\" = Table.RemoveColumns(#\"Expanded dimForecastVintage\",{\"VintageName\"}),",
-                "    #\"Renamed Columns\" = Table.RenameColumns(#\"Removed Columns\",{{\"Tons\", \"Forecast\"}})",
+                "SummerTimeStartDate = Date.StartOfWeek(#date(Date.Year(DateTime.LocalNow()), 3, 14), Day.Sunday),",
+                "WinterTimeStartDate = Date.StartOfWeek(#date(Date.Year(DateTime.LocalNow()), 10, 14), Day.Sunday),",
+                "",
+                "Timezonehours = if DateTimeZone.RemoveZone(DateTimeZone.UtcNow()) < SummerTimeStartDate & #time(1, 0, 0) or",
+                "DateTimeZone.RemoveZone(DateTimeZone.UtcNow()) > WinterTimeStartDate & #time(1, 0, 0) then",
+                "-8 else -7,",
+                "",
+                "#\"Date and Time\" = DateTimeZone.SwitchZone(DateTimeZone.UtcNow(), Timezonehours, 0),",
+                "",
+                "#\"Converted to Table\" = #table(1, {{#\"Date and Time\"}}),",
+                "",
+                "#\"Renamed Columns\" = Table.RenameColumns(#\"Converted to Table\",{{\"Column1\", \"DateTime\"}}),",
+                "",
+                "#\"Changed Type\" = Table.TransformColumnTypes(#\"Renamed Columns\",{{\"DateTime\", type datetimezone}}),",
+                "",
+                "#\"Duplicated Column\" = Table.DuplicateColumn(#\"Changed Type\", \"DateTime\", \"DateTime - Copy\"),",
+                "",
+                "#\"Renamed Columns1\" = Table.RenameColumns(#\"Duplicated Column\",{{\"DateTime - Copy\", \"Date\"}}),",
+                "",
+                "#\"Duplicated Column1\" = Table.DuplicateColumn(#\"Renamed Columns1\", \"Date\", \"Date - Copy\"),",
+                "",
+                "#\"Changed Type1\" = Table.TransformColumnTypes(#\"Duplicated Column1\",{{\"Date - Copy\", type time}, {\"Date\", type date}}),",
+                "",
+                "#\"Renamed Columns2\" = Table.RenameColumns(#\"Changed Type1\",{{\"Date - Copy\", \"Time\"}})",
                 "in",
-                "    #\"Renamed Columns\""
+                "",
+                "#\"Renamed Columns2\""
               ],
               "type": "m"
             }
