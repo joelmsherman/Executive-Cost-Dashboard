@@ -8,7 +8,7 @@ Ryan & Sons (R&S) is a major firm in the construction equipment supply industry,
 This project set out to integrate R&S cost data across the company's facilities, products, and product classes into one solution. The solution allows executives to view monthly, year-to-date, and estimated full year costs for its major products, along with variances between actual and planned costs.  Executives can easily view cost variances within a particular month, or over time by year.  The solution also connects to an industry association database API to allow B&S executives to monitor market share over time.
 
 ## Report
-A link to the live report is available [here]().
+A link to the live report is available [here](https://app.powerbi.com/view?r=eyJrIjoiMjk4ZmE0ZmYtMmJmYy00MmFjLTg3OGUtODRjYjNhOGUxYWE3IiwidCI6IjEwMmY4MzcyLTBlMWUtNDFhMy04ZWU4LTZhOTQ5NzAyZjcxNCJ9).
 
 ## Administration & Governance
 
