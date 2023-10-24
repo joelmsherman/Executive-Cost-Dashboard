@@ -1,5 +1,5 @@
 # Executive Cost Report
-![image]()
+![image](https://github.com/joelmsherman/Executive-Cost-Dashboard/blob/master/ExecutiveCostReport.png)
 
 ## Background
 Ryan & Sons (R&S) is a major firm in the construction equipment supply industry, with manufacturing operations in both North America and Europe. To remain competitive, R&S executives needed a way of monitoring their major product manufacturing costs, and to keep tabs on their overall share of the market.  R&S finance staff prepared monthly reports using data they culled from multiple systems.  The process was cumbersome and inefficient. 
